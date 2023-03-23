@@ -10,7 +10,9 @@ import (
 //SetupRouter ... Configure routes
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
-	r.GET("getAllProducts", GetAllProduct)
+	r.GET("/getAllProducts", GetAllProduct)
+	r.POST("/getProductById", GetProductById)
+	r.POST("/getUpdateById", GetUpdateById)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	return r
 }

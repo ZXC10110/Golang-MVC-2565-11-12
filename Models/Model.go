@@ -11,3 +11,9 @@ type Product struct {
 	Price    float64 `json:"price"`
 	Qty      int     `json:"qty"`
 }
+
+type ProductOperator struct {
+	Pid      string `json:"pid"`
+	Qty      int    `json:"qty"`
+	Operator string `json:"operator"`
+}

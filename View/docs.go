@@ -33,6 +33,68 @@ const docTemplate = `{
           }
         }
       }
+    },
+    "/getProductById": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "get Product",
+        "requestBody": {
+          "description": "get Product",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "get Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getUpdateById": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "get Product",
+        "requestBody": {
+          "description": "get Product",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductOperation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "get Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -46,7 +108,7 @@ const docTemplate = `{
           }, 
           "pid": {
             "type": "String",
-            "example": "123"
+            "example": "Ticket-01"
           }, 
           "pname": {
             "type": "String",
@@ -58,7 +120,26 @@ const docTemplate = `{
           }, 
           "qty": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": "10"
+          }
+        }
+      },
+      "ProductOperation": {
+        "type": "object",
+        "properties": { 
+          "pid": {
+            "type": "String",
+            "example": "Ticket-01"
+          }, 
+          "qty": {
+            "type": "integer",
+            "format": "int64",
+            "example": "10"
+          }, 
+          "operator": {
+            "type": "String",
+            "example": "increase"
           }
         }
       }
